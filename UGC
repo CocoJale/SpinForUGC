@@ -1,0 +1,45 @@
+GameName = "Spin for UGC"
+
+tab1name = "main"
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
+
+local GameName = Library:NewWindow(GameName)
+
+local Tab1 = GameName:NewSection(tab1name)
+
+Tab1:CreateButton("AutoSpin", function(value)
+local Spin = true
+while true do
+game:GetService("ReplicatedStorage"):WaitForChild("SharedModule"):WaitForChild("Remotes"):WaitForChild("Spin"):FireServer()
+wait(0.5)
+end
+ end)
+
+Tab1:CreateButton("Buy 3x Luck", function(value)
+for i = 1, 1 do
+local args = {
+    [1] = "PurchaseLuck3x"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("CommitAction"):FireServer(unpack(args))
+end
+ end)
+
+Tab1:CreateButton("Buy 2x Luck", function(value)
+for i = 1, 1 do
+local args = {
+    [1] = "PurchaseLuck2x"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("CommitAction"):FireServer(unpack(args))
+end
+ end)
+
+Tab1:CreateButton("AntiAfk", function(value)
+for i = 1, 1 do
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/Proxylol/OtherScripts/main/AntiAfk.lua'),true))()
+end
+end)
+
+local Tab2 = GameName:NewSection("Cocojale")
